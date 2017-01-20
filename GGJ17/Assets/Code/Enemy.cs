@@ -37,6 +37,11 @@ public class Enemy : MonoBehaviour
         button.ShowAimButton();
     }
 
+    public void HideButtonAim()
+    {
+        button.HideButtonAnim();
+    }
+
     //Discoment to show the attack radius sphere
     /*void OnDrawGizmos()
     {

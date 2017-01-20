@@ -5,6 +5,7 @@ public class Button_Enemy : MonoBehaviour
 {
     [Header("Balance")]
     public float visible_time = 2.0f;
+    public float aim_fade_time = 0.2f;
 
     [Header("Configuration")]
     public Sprite[] buttons;
@@ -12,31 +13,19 @@ public class Button_Enemy : MonoBehaviour
 
     bool is_visible = false;
     int id = -1;
-    bool is_aim_visible = false;
+    int hide_id = -1;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        hide_id = Random.Range(0, 3);
     }
 
-    void PreUpdate()
-    {
-        is_aim_visible = false;
-    }
-
-    void PostUpdate()
-    {
-        if(is_aim_visible == false && id == -1 && is_visible == false)
-        {
-            sprite.sprite = null;
-        }
-    }
-    
     public void ShowButton()
     {
         if(!is_visible)
         {
-            id = Random.Range(0, 3);
+            id = hide_id;
             is_visible = true;
             sprite.sprite = buttons[id];
             StartCoroutine("HideButton");
@@ -45,16 +34,25 @@ public class Button_Enemy : MonoBehaviour
 
     public void ShowAimButton()
     {
-       if(is_visible == false)
-       {
-           //First time seen
-           if(id == -1)
-           {
-               id = Random.Range(0, 3);
-               sprite.sprite = buttons[id];
-           }
-           is_aim_visible = true;
-       }
+        if(!is_visible)
+        {
+            id = hide_id;
+            is_visible = true;
+            sprite.sprite = buttons[id];
+        }
+    }
+
+    public void HideButtonAnim()
+    {
+        StartCoroutine("HideButtonAnimCo");
+    }
+
+    IEnumerator HideButtonAnimCo()
+    {
+        yield return new WaitForSeconds(aim_fade_time);
+        sprite.sprite = null;
+        is_visible = false;
+        id = -1;
     }
 
     IEnumerator HideButton()

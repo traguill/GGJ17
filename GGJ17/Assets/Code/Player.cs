@@ -7,10 +7,14 @@ public class Player : MonoBehaviour
     public float speed = 0.2f;
     public float max_dash_dst = 200;
     public LayerMask enemy_layer;
+    public float detection_time = 0.5f;
 
     float horizontal = 0;
     float vertical = 0;
 
+    Enemy selected_enemy = null;
+    Enemy candidate_enemy = null;
+    float candidate_vision_time = 0.0f;
 	
 	// Update is called once per frame
 	void Update () 
@@ -19,15 +23,8 @@ public class Player : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         Movement();
-
-       
-	
-	}
-
-    void FixedUpdate()
-    {
         Aiming();
-    }
+	}
 
     private void Movement()
     {
@@ -59,14 +56,73 @@ public class Player : MonoBehaviour
             Enemy enemy = hit.transform.gameObject.GetComponentInParent<Enemy>();
             if(enemy)
             {
-                enemy.ShowButtonAim();
+                Debug.Log("Enemy");
+                CheckEnemy(enemy);
             }
             else
             {
                 Debug.Log("Enemy doesn't have a button_enemy script");
             }
-
+        }
+        else
+        {
+        
         }
     
     }
+
+    private void CheckEnemy(Enemy enemy)
+    {
+        if (selected_enemy == null)
+        {
+            //No enemy is selected now
+            if (candidate_enemy == null)
+            {
+                //enemy is null and candidate too. add the enemy to a new candidate
+                candidate_enemy = enemy;
+                candidate_vision_time = 0.0f;
+            }
+            else
+            {
+                //there is no enemy selected and a candidate. Check if the candidate is the same as the enemy
+                if (candidate_enemy == enemy)
+                {
+                    //The candidate is the same again. Add time
+                    candidate_vision_time += Time.deltaTime;
+                    if (candidate_vision_time >= detection_time)
+                    {
+                        selected_enemy = candidate_enemy;
+                        candidate_enemy = null;
+                        candidate_vision_time = 0.0f;
+                    }
+                }
+                else
+                {
+                    //The candidate is a new candidate. Reset the time and add a new target
+                    candidate_enemy = enemy;
+                    candidate_vision_time = 0.0f;
+                }
+            }
+        }
+        else
+        {
+            //The player has pointed to a new target. Deselect the selected and add a new candidate
+            if (selected_enemy != enemy)
+            {
+                selected_enemy.HideButtonAim();
+                selected_enemy = null;
+                candidate_enemy = enemy;
+                candidate_vision_time = 0.0f;
+            }
+
+        }
+    }
+
+   void OnDrawGizmos()
+   {
+       Gizmos.color = Color.yellow;
+       Vector3 dst = new Vector3(horizontal, vertical, 0);
+
+       Gizmos.DrawLine(transform.position, transform.position + (dst.normalized * 3));
+   }
 }
