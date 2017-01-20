@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 public class ButtonController : MonoBehaviour 
 {
+    [Header("Balance")]
+    public float hit_radius = 1.0f; ///Configure with the enemy hit radius.Must have the same value
     List<EnemyItem> enemies = new List<EnemyItem>(); //Enemies you can PUNCH!!!
 
     public static ButtonController button_ctrl;
+
+    public Player player;
 
     void Awake()
     {
@@ -38,80 +42,61 @@ public class ButtonController : MonoBehaviour
         //A
         if(Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            Enemy enemy = CheckKeyPressed(0);
-            if(enemy)
-            {
-                //Check enemy is near or far. Near anim kill. Far dash to kill
-                RemoveEnemy(enemy);
-                Destroy(enemy.gameObject);
-            }
-            else
-            {
-                //Player has pressed a key that is not on the screen
-                Debug.Log("Miss key");
-            }
+            CheckKeyPressed(0);
         }
 
         //B
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            Enemy enemy = CheckKeyPressed(1);
-            if (enemy)
-            {
-                //Check enemy is near or far. Near anim kill. Far dash to kill
-                RemoveEnemy(enemy);
-                Destroy(enemy.gameObject);
-            }
-            else
-            {
-                //Player has pressed a key that is not on the screen
-                Debug.Log("Miss key");
-            }
+            CheckKeyPressed(1);
         }
 
         //X
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            Enemy enemy = CheckKeyPressed(2);
-            if (enemy)
-            {
-                //Check enemy is near or far. Near anim kill. Far dash to kill
-                RemoveEnemy(enemy);
-                Destroy(enemy.gameObject);
-            }
-            else
-            {
-                //Player has pressed a key that is not on the screen
-                Debug.Log("Miss key");
-            }
+            CheckKeyPressed(2);
         }
 
         //Y
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
         {
-            Enemy enemy = CheckKeyPressed(3);
-            if (enemy)
-            {
-                //Check enemy is near or far. Near anim kill. Far dash to kill
-                RemoveEnemy(enemy);
-                Destroy(enemy.gameObject);
-            }
-            else
-            {
-                //Player has pressed a key that is not on the screen
-                Debug.Log("Miss key");
-            }
+            CheckKeyPressed(3);
         }
     }
 
-    private Enemy CheckKeyPressed(int id)
+    private void CheckKeyPressed(int id)
     {
+        Enemy enemy = null;
         foreach (EnemyItem item in enemies)
         {
             if (item.id == id)
-                return item.enemy;
+            {
+                enemy = item.enemy;
+                break;
+            }
         }
 
-        return null;
+        if (enemy)
+        {
+            //Check enemy is near or far. Near anim kill. Far dash to kill
+            Vector3 distance = enemy.transform.position - player.transform.position;
+            if(distance.magnitude >= hit_radius)
+            {
+                //Dash
+                player.transform.position = enemy.transform.position;
+            }
+            else
+            {
+                //No dash
+            }
+
+            RemoveEnemy(enemy);
+            Destroy(enemy.gameObject);
+        }
+        else
+        {
+            //Player has pressed a key that is not on the screen
+            Debug.Log("Miss key");
+        }
     }
 }
