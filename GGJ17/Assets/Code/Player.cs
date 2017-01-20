@@ -11,10 +11,6 @@ public class Player : MonoBehaviour
 
     float horizontal = 0;
     float vertical = 0;
-
-    Enemy selected_enemy = null;
-    Enemy candidate_enemy = null;
-    float candidate_vision_time = 0.0f;
 	
 	// Update is called once per frame
 	void Update () 
@@ -56,8 +52,7 @@ public class Player : MonoBehaviour
             Enemy enemy = hit.transform.gameObject.GetComponentInParent<Enemy>();
             if(enemy)
             {
-                Debug.Log("Enemy");
-                CheckEnemy(enemy);
+                enemy.Seen();
             }
             else
             {
@@ -71,7 +66,7 @@ public class Player : MonoBehaviour
     
     }
 
-    private void CheckEnemy(Enemy enemy)
+    /*private void CheckEnemy(Enemy enemy)
     {
         if (selected_enemy == null)
         {
@@ -116,7 +111,7 @@ public class Player : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
    void OnDrawGizmos()
    {
