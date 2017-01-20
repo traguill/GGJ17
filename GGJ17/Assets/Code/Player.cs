@@ -59,10 +59,6 @@ public class Player : MonoBehaviour
                 Debug.Log("Enemy doesn't have a button_enemy script");
             }
         }
-        else
-        {
-        
-        }
     
     }
 

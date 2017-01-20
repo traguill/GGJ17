@@ -10,6 +10,7 @@ public class Button_Enemy : MonoBehaviour
     [Header("Configuration")]
     public Sprite[] buttons;
     SpriteRenderer sprite;
+    public Enemy parent;
 
     bool is_visible = false;
     int id = -1;
@@ -29,6 +30,7 @@ public class Button_Enemy : MonoBehaviour
             is_visible = true;
             sprite.sprite = buttons[id];
             StartCoroutine("HideButton");
+            ButtonController.button_ctrl.AddEnemy(parent, id);
         } 
     }
 
@@ -39,6 +41,7 @@ public class Button_Enemy : MonoBehaviour
             id = hide_id;
             is_visible = true;
             sprite.sprite = buttons[id];
+            ButtonController.button_ctrl.AddEnemy(parent, id);
         }
     }
 
@@ -53,6 +56,7 @@ public class Button_Enemy : MonoBehaviour
         sprite.sprite = null;
         is_visible = false;
         id = -1;
+        ButtonController.button_ctrl.RemoveEnemy(parent);
     }
 
     IEnumerator HideButton()
@@ -61,5 +65,6 @@ public class Button_Enemy : MonoBehaviour
         sprite.sprite = null;
         is_visible = false;
         id = -1;
+        ButtonController.button_ctrl.RemoveEnemy(parent);
     }
 }
