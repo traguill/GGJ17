@@ -77,4 +77,9 @@ public class GameLoop : MonoBehaviour
             game_over = true;
         }
     }
+
+    public bool IsGameOver()
+    {
+        return game_over;
+    }
 }
