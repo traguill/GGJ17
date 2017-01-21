@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
         if(frames_d >= detect_frames)
         {
             aim_button_visible = true;
-            button.ShowAimButton();
+            button.PreSelectedShow();
+            ButtonController.button_ctrl.SetPreSelectedEnemy(this);
         }
 
         if(aim_button_visible == true && frames_d == 0)
         {
-            aim_button_visible = false;
-            button.HideButtonAnim();
+            HidePreSelectedButton();
         }
 	}
 
@@ -60,11 +60,27 @@ public class Enemy : MonoBehaviour
         button.ShowButton();
     }
 
+    public void ShowPermanentButton()
+    {
+        button.ShowAimButton();
+    }
+
+    public void HidePermanentButton()
+    {
+        button.HideButtonAnim();
+    }
+
     //Seen by the player
     public void Seen()
     {
         if(frames_d < detect_frames)
             frames_d++;
+    }
+
+    public void HidePreSelectedButton()
+    {
+        aim_button_visible = false;
+        button.PreSelectedHide();
     }
 
     //Discoment to show the attack radius sphere

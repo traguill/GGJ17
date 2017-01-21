@@ -12,6 +12,9 @@ public class ButtonController : MonoBehaviour
 
     public Player player;
 
+    Enemy target = null;
+    Enemy pre_selected_target = null;
+
     void Awake()
     {
         button_ctrl = this;
@@ -20,6 +23,19 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         PlayerInput();
+
+        //Select target
+        if(Input.GetKeyDown(KeyCode.Joystick1Button5))
+        {
+            if(pre_selected_target)
+            {
+                if (target)
+                    target.HidePermanentButton();
+                target = pre_selected_target;
+                target.ShowPermanentButton();
+                pre_selected_target = null;
+            }
+        }
     }
 	
     public void AddEnemy(Enemy enemy, int button)
@@ -98,5 +114,14 @@ public class ButtonController : MonoBehaviour
             //Player has pressed a key that is not on the screen
             Debug.Log("Miss key");
         }
+    }
+
+    public void SetPreSelectedEnemy(Enemy enemy)
+    {
+        /*if(pre_selected_target)
+        {
+            pre_selected_target.HidePreSelectedButton();
+        }*/
+        pre_selected_target = enemy;
     }
 }

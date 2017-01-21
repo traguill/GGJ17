@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     float horizontal = 0;
     float vertical = 0;
 
+    float aim_horizontal = 0;
+    float aim_vertical = 0;
+
     //Movement
     float velocity = 0.0f;
     Vector3 direction = Vector3.zero;
@@ -53,10 +56,13 @@ public class Player : MonoBehaviour
 
     private void Aiming()
     {
-        if (horizontal == 0 && vertical == 0)
+        aim_horizontal = Input.GetAxis("HorizontalAim");
+        aim_vertical = Input.GetAxis("VerticalAim");
+
+        if (aim_horizontal == 0 && aim_vertical == 0)
             return;
 
-        Vector3 aim_dir = new Vector3(horizontal, vertical, 0);
+        Vector3 aim_dir = new Vector3(aim_horizontal, aim_vertical, 0);
         RaycastHit hit;
         if(Physics.Raycast(transform.position, aim_dir.normalized, out hit, max_dash_dst, enemy_layer))
         {
@@ -123,7 +129,7 @@ public class Player : MonoBehaviour
    void OnDrawGizmos()
    {
        Gizmos.color = Color.yellow;
-       Vector3 dst = new Vector3(horizontal, vertical, 0);
+       Vector3 dst = new Vector3(aim_horizontal, aim_vertical, 0);
 
        Gizmos.DrawLine(transform.position, transform.position + (dst.normalized * 3));
    }
