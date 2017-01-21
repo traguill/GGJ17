@@ -228,8 +228,6 @@ public class PlayerAnim : MonoBehaviour
         }
     }
 
-
-
    
     
 }

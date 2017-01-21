@@ -114,6 +114,8 @@ public class Enemy : MonoBehaviour
     {
         //Play attack animation.
 
+        //Hit player
+        Player.pl.PlayerHit();
         //Reset the attack loop.
         charge_time = 0.0f;
     }
