@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 //Attack
                 Attack();
-                GameLoop.manager.RemoveLife();
+               
             }
         }
 
@@ -112,8 +112,11 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
+        GameLoop.manager.RemoveLife();
         //Play attack animation.
 
+        //Hit player
+        Player.pl.PlayerHit();
         //Reset the attack loop.
         charge_time = 0.0f;
     }

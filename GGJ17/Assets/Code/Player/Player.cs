@@ -38,6 +38,16 @@ public class Player : MonoBehaviour
     public bool stunned = false;
     float stunned_time = 0.0f;
 
+    SpriteRenderer render;
+
+    public static Player pl;
+
+    void Awake()
+    {
+        render = GetComponent<SpriteRenderer>();
+        pl = this;
+    }
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -167,4 +177,27 @@ public class Player : MonoBehaviour
        ButtonController.button_ctrl.RemoveEnemy(enemy);
        Destroy(enemy.gameObject);   
    }
+
+    //The enemy has hit the player
+    public void PlayerHit()
+    {
+        if (!GameLoop.manager.IsGameOver())
+            StartCoroutine("DamagedPlayer");
+        else
+            GetComponent<PlayerAnim>().GameOverAnim();
+    }
+
+    IEnumerator DamagedPlayer()
+    {
+        int max_pop = 6;
+        for(int i = 0; i < max_pop; i++)
+        {
+            //Paint red
+            render.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            //Paint white
+            render.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }

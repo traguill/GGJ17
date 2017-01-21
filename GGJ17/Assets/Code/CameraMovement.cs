@@ -78,10 +78,10 @@ public class CameraMovement : MonoBehaviour
             float pos_x = target.position.x;
             float pos_y = target.position.y;
 
-            pos_x = RoundToNearestPixel(pos_x);
-            pos_y = RoundToNearestPixel(pos_y);
-
-            transform.position = Vector3.Lerp(transform.position, new Vector3(pos_x, pos_y, transform.position.z), (current_transition / total_transition));
+            Vector3 final_pos = Vector3.Lerp(transform.position, new Vector3(pos_x, pos_y, transform.position.z), (current_transition / total_transition));
+            final_pos.x = RoundToNearestPixel(final_pos.x);
+            final_pos.y = RoundToNearestPixel(final_pos.y);
+            transform.position = final_pos;
         }
     }
 
