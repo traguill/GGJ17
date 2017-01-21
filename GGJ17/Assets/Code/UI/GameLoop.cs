@@ -6,6 +6,7 @@ using System.Collections;
 public class GameLoop : MonoBehaviour 
 {
     public static GameLoop manager;
+    public CameraMovement camera;
 
     public Image life1;
     public Image life2;
@@ -45,6 +46,8 @@ public class GameLoop : MonoBehaviour
     {
 	    if(game_over)
         {
+            camera.CenterCamera();
+
             if (you_lose_alpha.a <= 1.0f)
             {
                 you_lose_alpha.a += 0.01f;

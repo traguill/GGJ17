@@ -13,6 +13,9 @@ public class CameraMovement : MonoBehaviour
     float half_size_x;
     float half_size_y;
 
+    float current_transition;
+    public float total_transition;
+
     void Awake()
     {
         Camera.main.orthographicSize = Screen.height / 64.0f / 2.0f;
@@ -22,6 +25,8 @@ public class CameraMovement : MonoBehaviour
 
         half_size_x = bounds.extents.x;
         half_size_y = bounds.extents.y;
+
+        current_transition = 0.0f;
     }
 	
 	void LateUpdate()
@@ -63,4 +68,24 @@ public class CameraMovement : MonoBehaviour
         float adjustedUnityUnits = valueInPixels / (Screen.height / (Camera.main.orthographicSize * 2));
         return adjustedUnityUnits;
     }
+
+    public void CenterCamera()
+    {
+        if (current_transition < total_transition)
+        {
+            current_transition += Time.deltaTime;
+
+            float pos_x = target.position.x;
+            float pos_y = target.position.y;
+
+            pos_x = RoundToNearestPixel(pos_x);
+            pos_y = RoundToNearestPixel(pos_y);
+
+            transform.position = Vector3.Lerp(transform.position, new Vector3(pos_x, pos_y, transform.position.z), (current_transition / total_transition));
+        }
+    }
+
+    /*currentStep += Time.deltatime;  
+    Vector3 oldposition = camera.transform.position;
+    camera.transform.position = Vector3.Lerp(oldposition, cameratarget.transform.position, currentStep / panSteps);*/
 }
