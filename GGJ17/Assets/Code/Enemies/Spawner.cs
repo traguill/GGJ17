@@ -17,7 +17,13 @@ public class Spawner : MonoBehaviour
 
     public GameObject CreateEnemy(GameObject enemy, GameObject target)
     {
-        GameObject new_enemy = Instantiate(enemy, transform.position, transform.rotation) as GameObject;        
+        float offset_x = Random.Range(0.0f, 2.0f);
+        float offset_y = Random.Range(0.0f, 2.0f);
+        Vector3 spawn_position = transform.position;
+        spawn_position.x += offset_x;
+        spawn_position.y += offset_y;
+
+        GameObject new_enemy = Instantiate(enemy, spawn_position, transform.rotation) as GameObject;        
         new_enemy.GetComponent<Seek>().target = target.transform;
         return new_enemy;
     }
