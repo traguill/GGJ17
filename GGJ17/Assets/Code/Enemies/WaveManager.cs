@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager wave_manager;
     public SpawnerManager spawner_manager;
-    public List<Vector2> waves;
+    public List<Vector3> waves;
     public int actual_wave;
     List<GameObject> enemies_alive = new List<GameObject>();    
 
@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
         enemies_alive.Add(new_enemy);
     }
 
-    public Vector2 GetActualWave()
+    public Vector3 GetActualWave()
     {
         return waves[actual_wave];
     }
