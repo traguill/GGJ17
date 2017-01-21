@@ -11,6 +11,7 @@ public class ButtonController : MonoBehaviour
     public static ButtonController button_ctrl;
 
     public Player player;
+    PlayerAnim p_anim;
 
     Enemy target = null;
     [HideInInspector]
@@ -19,6 +20,11 @@ public class ButtonController : MonoBehaviour
     void Awake()
     {
         button_ctrl = this;
+    }
+
+    void Start()
+    {
+        p_anim = player.GetComponent<PlayerAnim>();
     }
 
     void Update()
@@ -103,17 +109,17 @@ public class ButtonController : MonoBehaviour
             Vector3 distance = enemy.transform.position - player.transform.position;
             if(distance.magnitude >= hit_radius)
             {
-                //Dash
-                player.transform.position = enemy.transform.position;
+                p_anim.PlayDash(enemy);
             }
             else
             {
                 //No dash
+                Debug.Log("BasicPunch");
+                p_anim.PlayPunch(enemy.transform);
+                player.KillEnemy(enemy);
             }
 
-            WaveManager.wave_manager.DestroyEnemy(enemy.gameObject);
-            RemoveEnemy(enemy);
-            Destroy(enemy.gameObject);            
+                    
         }
         else
         {

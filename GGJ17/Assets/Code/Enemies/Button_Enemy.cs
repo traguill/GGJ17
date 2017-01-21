@@ -19,7 +19,7 @@ public class Button_Enemy : MonoBehaviour
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        hide_id = Random.Range(0, 3);
+        hide_id = Random.Range(0, 4);
     }
 
     public void ShowButton()

@@ -25,8 +25,13 @@ public class Player : MonoBehaviour
     float aim_vertical = 0;
 
     //Movement
-    float velocity = 0.0f;
-    Vector3 direction = Vector3.zero;
+    [HideInInspector]
+    public float velocity = 0.0f;
+    [HideInInspector]
+    public Vector3 direction = Vector3.zero;
+
+    [HideInInspector]
+    public bool block_movement = false;
 
     //Stun
     [HideInInspector]
@@ -42,7 +47,8 @@ public class Player : MonoBehaviour
 
         if(!stunned)
         {
-            Movement();
+            if(!block_movement)
+                Movement();
             Aiming();
         }
         else
@@ -149,5 +155,12 @@ public class Player : MonoBehaviour
        Vector3 dst = new Vector3(aim_horizontal, aim_vertical, 0);
 
        Gizmos.DrawLine(transform.position, transform.position + (dst.normalized * 3));
+   }
+
+    public void KillEnemy(Enemy enemy)
+   {
+       WaveManager.wave_manager.DestroyEnemy(enemy.gameObject);
+       ButtonController.button_ctrl.RemoveEnemy(enemy);
+       Destroy(enemy.gameObject);   
    }
 }

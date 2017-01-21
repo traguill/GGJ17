@@ -1,0 +1,809 @@
+fileFormatVersion: 2
+guid: 8f67916f9e2088746880c8ba02a16a65
+timeCreated: 1485012680
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 67_55_Player_Sheet_0
+    21300002: 67_55_Player_Sheet_1
+    21300004: 67_55_Player_Sheet_2
+    21300006: 67_55_Player_Sheet_3
+    21300008: 67_55_Player_Sheet_4
+    21300010: 67_55_Player_Sheet_5
+    21300012: 67_55_Player_Sheet_6
+    21300014: 67_55_Player_Sheet_7
+    21300016: 67_55_Player_Sheet_8
+    21300018: 67_55_Player_Sheet_9
+    21300020: 67_55_Player_Sheet_10
+    21300022: 67_55_Player_Sheet_11
+    21300024: 67_55_Player_Sheet_12
+    21300026: 67_55_Player_Sheet_13
+    21300028: 67_55_Player_Sheet_14
+    21300030: 67_55_Player_Sheet_15
+    21300032: 67_55_Player_Sheet_16
+    21300034: 67_55_Player_Sheet_17
+    21300036: 67_55_Player_Sheet_18
+    21300038: 67_55_Player_Sheet_19
+    21300040: 67_55_Player_Sheet_20
+    21300042: 67_55_Player_Sheet_21
+    21300044: 67_55_Player_Sheet_22
+    21300046: 67_55_Player_Sheet_23
+    21300048: 67_55_Player_Sheet_24
+    21300050: 67_55_Player_Sheet_25
+    21300052: 67_55_Player_Sheet_26
+    21300054: 67_55_Player_Sheet_27
+    21300056: 67_55_Player_Sheet_28
+    21300058: 67_55_Player_Sheet_29
+    21300060: 67_55_Player_Sheet_30
+    21300062: 67_55_Player_Sheet_31
+    21300064: 67_55_Player_Sheet_32
+    21300066: 67_55_Player_Sheet_33
+    21300068: 67_55_Player_Sheet_34
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 24
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 67_55_Player_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 20.5}
+        - {x: -12.5, y: 10.5}
+        - {x: -12.5, y: -18.5}
+        - {x: -11.5, y: -27.5}
+        - {x: 10.5, y: -27.5}
+        - {x: 13.5, y: -8.5}
+        - {x: 13.5, y: 8.5}
+        - {x: 7.5, y: 20.5}
+    - name: 67_55_Player_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 220
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: 20.5}
+        - {x: -12.5, y: 8.5}
+        - {x: -12.5, y: -27.5}
+        - {x: 11.5, y: -27.5}
+        - {x: 13.5, y: -19.5}
+        - {x: 13.5, y: 7.5}
+        - {x: 9.5, y: 20.5}
+    - name: 67_55_Player_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 220
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: 19.5}
+        - {x: -5.5, y: 19.5}
+        - {x: -12.5, y: 7.5}
+        - {x: -12.5, y: -20.5}
+        - {x: -11.5, y: -27.5}
+        - {x: 11.5, y: -27.5}
+        - {x: 13.5, y: -17.5}
+        - {x: 13.5, y: 4.5}
+        - {x: 10.5, y: 15.5}
+    - name: 67_55_Player_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 220
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.5, y: 19.5}
+        - {x: -5.5, y: 19.5}
+        - {x: -12.5, y: 1.5}
+        - {x: -12.5, y: -2.5}
+        - {x: -9.5, y: -5.5}
+        - {x: -9.5, y: -14.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 11.5, y: -27.5}
+        - {x: 13.5, y: -16.5}
+        - {x: 13.5, y: 8.5}
+        - {x: 11.5, y: 18.5}
+    - name: 67_55_Player_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 220
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 20.5}
+        - {x: -12.5, y: 4.5}
+        - {x: -12.5, y: -19.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 10.5, y: -27.5}
+        - {x: 13.5, y: -16.5}
+        - {x: 13.5, y: 7.5}
+        - {x: 8.5, y: 20.5}
+    - name: 67_55_Player_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 9.5}
+        - {x: -14.5, y: 8.5}
+        - {x: -15.5, y: 3.5}
+        - {x: -15.5, y: -27.5}
+        - {x: 15.5, y: -27.5}
+        - {x: 17.5, y: -13.5}
+        - {x: 17.5, y: 3.5}
+        - {x: 11.5, y: 9.5}
+    - name: 67_55_Player_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: -14.5}
+        - {x: 16.5, y: -0.5}
+        - {x: -1.5, y: 10.5}
+        - {x: -20.5, y: 10.5}
+        - {x: -32.5, y: 4.5}
+        - {x: -33.5, y: 2.5}
+        - {x: -33.5, y: -3.5}
+        - {x: -31.5, y: -4.5}
+        - {x: -14.5, y: -27.5}
+        - {x: -4.5, y: -27.5}
+        - {x: -4.5, y: -24.5}
+        - {x: -0.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+    - name: 67_55_Player_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18.5, y: -14.5}
+        - {x: 18.5, y: -3.5}
+        - {x: -4.5, y: 10.5}
+        - {x: -30.5, y: 10.5}
+        - {x: -33.5, y: 9.5}
+        - {x: -33.5, y: -14.5}
+        - {x: -25.5, y: -27.5}
+        - {x: -4.5, y: -27.5}
+        - {x: -4.5, y: -24.5}
+        - {x: -0.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+    - name: 67_55_Player_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 10.5}
+        - {x: -33.5, y: -17.5}
+        - {x: -27.5, y: -27.5}
+        - {x: 13.5, y: -27.5}
+        - {x: 13.5, y: 10.5}
+    - name: 67_55_Player_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: -19.5}
+        - {x: -2.5, y: -22.5}
+        - {x: 0.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 11.5, y: -16.5}
+        - {x: 11.5, y: 2.5}
+        - {x: 6.5, y: 6.5}
+        - {x: -2.5, y: 11.5}
+        - {x: -6.5, y: 12.5}
+        - {x: -21.5, y: 12.5}
+        - {x: -33.5, y: 4.5}
+        - {x: -33.5, y: -0.5}
+        - {x: -32.5, y: -4.5}
+        - {x: -14.5, y: -27.5}
+        - {x: -4.5, y: -27.5}
+        - {x: -4.5, y: -24.5}
+        - {x: -6.5, y: -21.5}
+        - {x: -6.5, y: -17.5}
+    - name: 67_55_Player_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 14.5}
+        - {x: -30.5, y: 14.5}
+        - {x: -30.5, y: -17.5}
+        - {x: -26.5, y: -27.5}
+        - {x: 11.5, y: -27.5}
+        - {x: 11.5, y: 2.5}
+        - {x: -0.5, y: 12.5}
+    - name: 67_55_Player_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 165
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.5, y: -27.5}
+        - {x: 10.5, y: -27.5}
+        - {x: 10.5, y: -8.5}
+        - {x: -1.5, y: 16.5}
+        - {x: -22.5, y: 16.5}
+        - {x: -27.5, y: 14.5}
+        - {x: -27.5, y: -17.5}
+        - {x: -22.5, y: -27.5}
+        - {x: -4.5, y: -27.5}
+        - {x: -5.5, y: -17.5}
+        - {x: -5.5, y: -19.5}
+    - name: 67_55_Player_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.5, y: 22.5}
+        - {x: -16.5, y: 22.5}
+        - {x: -16.5, y: -12.5}
+        - {x: -1.5, y: -27.5}
+        - {x: 8.5, y: -27.5}
+        - {x: 31.5, y: -5.5}
+        - {x: 32.5, y: -1.5}
+        - {x: 32.5, y: 12.5}
+    - name: 67_55_Player_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 24.5}
+        - {x: -15.5, y: -27.5}
+        - {x: 31.5, y: -27.5}
+        - {x: 31.5, y: 3.5}
+        - {x: 12.5, y: 24.5}
+    - name: 67_55_Player_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 23.5}
+        - {x: -13.5, y: 23.5}
+        - {x: -17.5, y: 21.5}
+        - {x: -17.5, y: -23.5}
+        - {x: -16.5, y: -24.5}
+        - {x: 28.5, y: -24.5}
+        - {x: 33.5, y: -18.5}
+        - {x: 33.5, y: 4.5}
+        - {x: 27.5, y: 11.5}
+    - name: 67_55_Player_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 19.5}
+        - {x: -17.5, y: 6.5}
+        - {x: -17.5, y: -27.5}
+        - {x: 30.5, y: -27.5}
+        - {x: 33.5, y: -16.5}
+        - {x: 33.5, y: 8.5}
+        - {x: 3.5, y: 19.5}
+    - name: 67_55_Player_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 6.5}
+        - {x: 4.5, y: 22.5}
+        - {x: -6.5, y: 22.5}
+        - {x: -10.5, y: 9.5}
+        - {x: -10.5, y: -10.5}
+        - {x: -2.5, y: -27.5}
+        - {x: 8.5, y: -27.5}
+        - {x: 31.5, y: -5.5}
+        - {x: 32.5, y: -1.5}
+        - {x: 32.5, y: 4.5}
+    - name: 67_55_Player_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 23.5}
+        - {x: -11.5, y: 23.5}
+        - {x: -14.5, y: 18.5}
+        - {x: -14.5, y: -27.5}
+        - {x: 25.5, y: -27.5}
+        - {x: 31.5, y: -4.5}
+        - {x: 31.5, y: 2.5}
+        - {x: 28.5, y: 11.5}
+    - name: 67_55_Player_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.5, y: 22.5}
+        - {x: -15.5, y: 22.5}
+        - {x: -15.5, y: -22.5}
+        - {x: -14.5, y: -24.5}
+        - {x: -1.5, y: -25.5}
+        - {x: 29.5, y: -25.5}
+        - {x: 33.5, y: -18.5}
+        - {x: 33.5, y: 16.5}
+        - {x: 32.5, y: 19.5}
+    - name: 67_55_Player_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 110
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 20.5}
+        - {x: -20.5, y: 6.5}
+        - {x: -20.5, y: -0.5}
+        - {x: -19.5, y: -5.5}
+        - {x: -12.5, y: -5.5}
+        - {x: -14.5, y: -23.5}
+        - {x: -15.5, y: -27.5}
+        - {x: 27.5, y: -27.5}
+        - {x: 31.5, y: -15.5}
+        - {x: 31.5, y: 6.5}
+        - {x: 0.5, y: 20.5}
+    - name: 67_55_Player_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: -27.5}
+        - {x: 24.5, y: -27.5}
+        - {x: 24.5, y: 19.5}
+        - {x: 23.5, y: 20.5}
+        - {x: -8.5, y: 20.5}
+        - {x: -15.5, y: 2.5}
+    - name: 67_55_Player_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 21.5}
+        - {x: -14.5, y: -1.5}
+        - {x: -14.5, y: -11.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 14.5, y: -27.5}
+        - {x: 24.5, y: -16.5}
+        - {x: 24.5, y: -0.5}
+        - {x: 11.5, y: 21.5}
+    - name: 67_55_Player_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 20.5}
+        - {x: -16.5, y: 4.5}
+        - {x: -16.5, y: -19.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 16.5, y: -27.5}
+        - {x: 23.5, y: -14.5}
+        - {x: 23.5, y: 12.5}
+        - {x: 16.5, y: 20.5}
+    - name: 67_55_Player_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 16.5}
+        - {x: -19.5, y: -1.5}
+        - {x: -19.5, y: -15.5}
+        - {x: -13.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 20.5, y: -6.5}
+        - {x: 20.5, y: -1.5}
+        - {x: 5.5, y: 16.5}
+    - name: 67_55_Player_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 9.5}
+        - {x: -8.5, y: 9.5}
+        - {x: -21.5, y: 1.5}
+        - {x: -21.5, y: -27.5}
+        - {x: 8.5, y: -27.5}
+        - {x: 19.5, y: -12.5}
+        - {x: 19.5, y: -4.5}
+        - {x: 9.5, y: 5.5}
+    - name: 67_55_Player_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 6.5}
+        - {x: -20.5, y: -12.5}
+        - {x: -20.5, y: -24.5}
+        - {x: -18.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 18.5, y: -21.5}
+        - {x: 18.5, y: -7.5}
+        - {x: 13.5, y: 6.5}
+    - name: 67_55_Player_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 55
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 6.5}
+        - {x: -4.5, y: 4.5}
+        - {x: -17.5, y: -18.5}
+        - {x: -17.5, y: -27.5}
+        - {x: 11.5, y: -27.5}
+        - {x: 13.5, y: -24.5}
+        - {x: 13.5, y: -13.5}
+        - {x: 6.5, y: 6.5}
+    - name: 67_55_Player_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 21.5}
+        - {x: -2.5, y: 21.5}
+        - {x: -6.5, y: 20.5}
+        - {x: -13.5, y: 4.5}
+        - {x: -13.5, y: -10.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 15.5, y: 0.5}
+        - {x: 15.5, y: 5.5}
+        - {x: 7.5, y: 16.5}
+    - name: 67_55_Player_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 21.5}
+        - {x: -14.5, y: 12.5}
+        - {x: -14.5, y: -19.5}
+        - {x: -12.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 15.5, y: -4.5}
+        - {x: 15.5, y: 10.5}
+        - {x: 8.5, y: 21.5}
+    - name: 67_55_Player_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: 20.5}
+        - {x: -6.5, y: 20.5}
+        - {x: -13.5, y: 8.5}
+        - {x: -13.5, y: -18.5}
+        - {x: -12.5, y: -27.5}
+        - {x: 9.5, y: -27.5}
+        - {x: 13.5, y: -0.5}
+        - {x: 13.5, y: 3.5}
+        - {x: 10.5, y: 18.5}
+    - name: 67_55_Player_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 22.5}
+        - {x: -12.5, y: 10.5}
+        - {x: -12.5, y: -27.5}
+        - {x: 10.5, y: -27.5}
+        - {x: 13.5, y: -21.5}
+        - {x: 13.5, y: 19.5}
+        - {x: 12.5, y: 22.5}
+    - name: 67_55_Player_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: -27.5}
+        - {x: 6.5, y: -27.5}
+        - {x: 6.5, y: -24.5}
+        - {x: 3.5, y: -23.5}
+        - {x: 1.5, y: -25.5}
+      - - {x: -4.5, y: -27.5}
+        - {x: -1.5, y: -26.5}
+        - {x: -1.5, y: -23.5}
+        - {x: -4.5, y: -22.5}
+        - {x: -6.5, y: -24.5}
+      - - {x: 3.5, y: 23.5}
+        - {x: -6.5, y: 23.5}
+        - {x: -12.5, y: 18.5}
+        - {x: -12.5, y: -20.5}
+        - {x: -5.5, y: -21.5}
+        - {x: -4.5, y: -21.5}
+        - {x: 0.5, y: -23.5}
+        - {x: 7.5, y: -23.5}
+        - {x: 13.5, y: -6.5}
+        - {x: 13.5, y: 16.5}
+        - {x: 12.5, y: 19.5}
+    - name: 67_55_Player_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 24.5}
+        - {x: -11.5, y: 22.5}
+        - {x: -11.5, y: -14.5}
+        - {x: 7.5, y: -14.5}
+        - {x: 13.5, y: 3.5}
+        - {x: 13.5, y: 24.5}
+    - name: 67_55_Player_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 19.5}
+        - {x: -11.5, y: -0.5}
+        - {x: -10.5, y: -3.5}
+        - {x: -5.5, y: -4.5}
+        - {x: 3.5, y: -4.5}
+        - {x: 12.5, y: 2.5}
+        - {x: 12.5, y: 19.5}
+      - - {x: -1.5, y: 26.5}
+        - {x: -4.5, y: 21.5}
+        - {x: -4.5, y: 16.5}
+        - {x: -2.5, y: 14.5}
+        - {x: 4.5, y: 14.5}
+        - {x: 6.5, y: 19.5}
+        - {x: 6.5, y: 25.5}
+        - {x: 1.5, y: 26.5}
+    - name: 67_55_Player_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 67
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 22.5}
+        - {x: -9.5, y: 9.5}
+        - {x: -2.5, y: 1.5}
+        - {x: 4.5, y: 1.5}
+        - {x: 10.5, y: 12.5}
+        - {x: 10.5, y: 22.5}
+      - - {x: 3.5, y: 1.5}
+        - {x: 6.5, y: 2.5}
+        - {x: 6.5, y: 5.5}
+        - {x: 3.5, y: 6.5}
+        - {x: 1.5, y: 4.5}
+      - - {x: -3.5, y: 27.5}
+        - {x: -4.5, y: 24.5}
+        - {x: -4.5, y: 17.5}
+        - {x: -2.5, y: 17.5}
+        - {x: 2.5, y: 19.5}
+        - {x: 6.5, y: 22.5}
+        - {x: 6.5, y: 26.5}
+        - {x: 5.5, y: 27.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
