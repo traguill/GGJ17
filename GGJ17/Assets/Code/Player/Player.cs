@@ -45,20 +45,24 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(!stunned)
+        if (!GameLoop.manager.IsGameOver())
         {
-            if(!block_movement)
-                Movement();
-            Aiming();
-        }
-        else
-        {
-            stunned_time += Time.deltaTime;
-            if(stunned_time >= max_stun_time)
+
+            if (!stunned)
             {
-                stunned_time = 0.0f;
-                stunned = false;
-                //End of the stun
+                if (!block_movement)
+                    Movement();
+                Aiming();
+            }
+            else
+            {
+                stunned_time += Time.deltaTime;
+                if (stunned_time >= max_stun_time)
+                {
+                    stunned_time = 0.0f;
+                    stunned = false;
+                    //End of the stun
+                }
             }
         }
         

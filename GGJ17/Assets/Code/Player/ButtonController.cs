@@ -30,7 +30,7 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         //No player movement if it's stunned
-        if (player.stunned)
+        if (player.stunned || GameLoop.manager.IsGameOver())
             return;
 
         PlayerInput();

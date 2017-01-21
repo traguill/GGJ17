@@ -6,8 +6,15 @@ using UnityEngine.UI;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager wave_manager;
-    public Text actual_wave_ui;
     public SpawnerManager spawner_manager;
+
+    public Text actual_wave_ui;
+    public Text countdown;
+
+    int count;
+    bool countdown_activated;
+    float countdown_timer;
+
     public List<Vector3> waves;
     public int actual_wave;
     List<GameObject> enemies_alive = new List<GameObject>();    
@@ -21,19 +28,41 @@ public class WaveManager : MonoBehaviour
     void Start ()
     {
         actual_wave = 0;
-        actual_wave_ui.text = "Wave: " + (actual_wave + 1);
+        actual_wave_ui.text = (actual_wave + 1).ToString();
+        countdown_timer = 0.0f;
+        countdown_activated = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (!spawner_manager.IsSpawning() && enemies_alive.Count == 0)
+        if (!countdown_activated && !spawner_manager.IsSpawning() && enemies_alive.Count == 0)
         {
-            actual_wave++;
-            actual_wave_ui.text = "Wave: " + (actual_wave + 1);
-            spawner_manager.WaveChanged();
-        }        
-	}
+            ActivateCountdown();            
+        }
+
+        if(countdown_activated)
+        {
+            if (countdown_timer > 1.0f)
+            {
+                if (count > 0)
+                {
+                    count--;
+                    countdown.text = count.ToString();
+                    countdown_timer = 0.0f;
+                }
+                else
+                {
+                    DesctivateCountdown();
+                    actual_wave++;
+                    actual_wave_ui.text = (actual_wave + 1).ToString();
+                    spawner_manager.WaveChanged();
+                }
+            }
+            else
+                countdown_timer += Time.deltaTime;
+        }
+    }
 
     public void DestroyEnemy(GameObject enemy_to_destroy)
     {
@@ -48,5 +77,19 @@ public class WaveManager : MonoBehaviour
     public Vector3 GetActualWave()
     {
         return waves[actual_wave];
+    }
+
+    void ActivateCountdown()
+    {
+        count = 5;
+        countdown_timer = 0.0f;
+        countdown.gameObject.SetActive(true);
+        countdown_activated = true;        
+    }
+
+    void DesctivateCountdown()
+    {
+        countdown.gameObject.SetActive(false);
+        countdown_activated = false;
     }
 }
