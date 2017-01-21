@@ -90,8 +90,9 @@ public class ButtonController : MonoBehaviour
                 //No dash
             }
 
+            WaveManager.wave_manager.DestroyEnemy(enemy.gameObject);
             RemoveEnemy(enemy);
-            Destroy(enemy.gameObject);
+            Destroy(enemy.gameObject);            
         }
         else
         {
