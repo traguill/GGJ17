@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
             if(charge_time >= charge_attack_time)
             {
                 //Attack
-                Debug.Log("Attack");
+                Attack();
                 GameLoop.manager.RemoveLife();
             }
         }
@@ -105,6 +105,14 @@ public class Enemy : MonoBehaviour
         button.PreSelectedHide();
     }
 
+
+    private void Attack()
+    {
+        //Play attack animation.
+
+        //Reset the attack loop.
+        charge_time = 0.0f;
+    }
     //Discoment to show the attack radius sphere
     /*void OnDrawGizmos()
     {

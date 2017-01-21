@@ -26,7 +26,7 @@ public class GameLoop : MonoBehaviour
 
     public void RemoveLife()
     {
-        lifes = 0;
+        lifes--;
         life_text.text = "Lifes: " + lifes.ToString();
     }
 }
