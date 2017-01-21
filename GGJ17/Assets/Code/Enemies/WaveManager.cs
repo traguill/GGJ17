@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     float countdown_timer;
 
     public List<Vector3> waves;
+    public List<Vector3> initial_waves;
     public int actual_wave;
     List<GameObject> enemies_alive = new List<GameObject>();    
 
@@ -77,6 +78,11 @@ public class WaveManager : MonoBehaviour
     public Vector3 GetActualWave()
     {
         return waves[actual_wave];
+    }
+
+    public Vector3 GetActualInitialWave()
+    {
+        return initial_waves[actual_wave];
     }
 
     void ActivateCountdown()
