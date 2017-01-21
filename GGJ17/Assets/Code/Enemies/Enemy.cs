@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 //Attack
                 Debug.Log("Attack");
+                GameLoop.manager.RemoveLife();
             }
         }
 
