@@ -13,7 +13,8 @@ public class ButtonController : MonoBehaviour
     public Player player;
 
     Enemy target = null;
-    Enemy pre_selected_target = null;
+    [HideInInspector]
+    public Enemy pre_selected_target = null;
 
     void Awake()
     {
