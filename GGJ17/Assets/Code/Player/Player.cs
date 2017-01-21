@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
         {
             stunned = true;
             stunned_time = 0.0f;
+            GetComponent<PlayerAnim>().PlayFailAnim();
         }  
     }
 
