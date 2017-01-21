@@ -9,6 +9,7 @@ public class Button_Enemy : MonoBehaviour
 
     [Header("Configuration")]
     public Sprite[] buttons;
+    public Sprite selected_icon;
     SpriteRenderer sprite;
     public Enemy parent;
 
@@ -43,6 +44,20 @@ public class Button_Enemy : MonoBehaviour
             sprite.sprite = buttons[id];
             ButtonController.button_ctrl.AddEnemy(parent, id);
         }
+    }
+
+    public void PreSelectedShow()
+    {
+        if(!is_visible)
+        {
+            sprite.sprite = selected_icon;
+        }
+    }
+
+    public void PreSelectedHide()
+    {
+        if (!is_visible)
+            sprite.sprite = null;
     }
 
     public void HideButtonAnim()
