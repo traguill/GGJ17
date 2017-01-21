@@ -4,13 +4,23 @@ using System.Collections;
 public class Player : MonoBehaviour 
 {
     [Header("Balance")]
-    public float speed = 0.2f;
+    [Header("Movement")]
+    public float max_speed = 10.0f;
+    public float acceleration = 1.0f;
+    [Range(0.0f, 1.0f)]
+    public float reactivityPercent = 0.5f;
+
     public float max_dash_dst = 200;
     public LayerMask enemy_layer;
     public float detection_time = 0.5f;
 
     float horizontal = 0;
     float vertical = 0;
+
+    //Movement
+    float velocity = 0.0f;
+    Vector3 direction = Vector3.zero;
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -24,20 +34,21 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-        Vector3 step = Vector3.zero;
-
-        
-        if (horizontal != 0)
+        if (horizontal != 0 || vertical != 0)
         {
-            step.x += horizontal * speed * Time.deltaTime;
+            Vector3 new_direction = new Vector3(horizontal, vertical, 0);
+            float opposite_percent = Vector3.Angle(new_direction, direction) / 180.0f;
+            velocity = velocity + acceleration + acceleration * reactivityPercent * opposite_percent;
+            if (velocity >= max_speed)
+                velocity = max_speed;
+            direction = new_direction;
+            transform.position += direction.normalized * (velocity * Time.deltaTime);
         }
-
-        if (vertical != 0)
+        else
         {
-            step.y += vertical * speed * Time.deltaTime;
+            direction = Vector3.zero;
+            velocity = 0;
         }
-
-        transform.position += step;
     }
 
     private void Aiming()
