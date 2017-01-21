@@ -14,6 +14,7 @@ public class SpawnerManager : MonoBehaviour
     int wave_enemies;
     public int enemies_spawned;
     bool stop_spawning;
+    int initial_enemies;
 
     // Use this for initialization
     void Start ()
@@ -54,10 +55,21 @@ public class SpawnerManager : MonoBehaviour
         stop_spawning = false;
         enemies_spawned = 0;
         wave_enemies = (int)WaveManager.wave_manager.GetActualWave().x;
+        initial_enemies = (int)WaveManager.wave_manager.GetActualWave().z;
+
+        StartWave();
     }
 
+    void StartWave()
+    {
+        for(int i  = 0; i < initial_enemies; i++)
+        {
+            Spawn();
+        }
+    }
+        
     public bool IsSpawning()
     {
         return !stop_spawning;
-    }
+    }    
 }
