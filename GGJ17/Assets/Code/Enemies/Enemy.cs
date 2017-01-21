@@ -50,6 +50,9 @@ public class Enemy : MonoBehaviour
         {
             HidePreSelectedButton();
         }
+
+        if (GameLoop.manager.IsGameOver())
+            HidePermanentButton();
 	}
 
     void LateUpdate()
@@ -79,7 +82,8 @@ public class Enemy : MonoBehaviour
 
     public void ShowButton()
     {
-        button.ShowButton();
+        if (GameLoop.manager.IsGameOver())
+            button.ShowButton();
     }
 
     public void ShowPermanentButton()
