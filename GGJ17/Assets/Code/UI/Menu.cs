@@ -2,7 +2,13 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class Menu : MonoBehaviour {
+public class Menu : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
+            Play();
+    }
 
     public void Play()
     {
