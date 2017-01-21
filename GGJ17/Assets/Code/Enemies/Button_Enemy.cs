@@ -4,7 +4,6 @@ using System.Collections;
 public class Button_Enemy : MonoBehaviour 
 {
     [Header("Balance")]
-    public float visible_time = 2.0f;
     public float aim_fade_time = 0.2f;
 
     [Header("Configuration")]
@@ -30,7 +29,6 @@ public class Button_Enemy : MonoBehaviour
             id = hide_id;
             is_visible = true;
             sprite.sprite = buttons[id];
-            StartCoroutine("HideButton");
             ButtonController.button_ctrl.AddEnemy(parent, id);
         } 
     }
@@ -68,15 +66,6 @@ public class Button_Enemy : MonoBehaviour
     IEnumerator HideButtonAnimCo()
     {
         yield return new WaitForSeconds(aim_fade_time);
-        sprite.sprite = null;
-        is_visible = false;
-        id = -1;
-        ButtonController.button_ctrl.RemoveEnemy(parent);
-    }
-
-    IEnumerator HideButton()
-    {
-        yield return new WaitForSeconds(visible_time);
         sprite.sprite = null;
         is_visible = false;
         id = -1;

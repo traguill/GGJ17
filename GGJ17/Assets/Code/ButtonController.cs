@@ -23,6 +23,10 @@ public class ButtonController : MonoBehaviour
 
     void Update()
     {
+        //No player movement if it's stunned
+        if (player.stunned)
+            return;
+
         PlayerInput();
 
         //Select target
@@ -114,7 +118,7 @@ public class ButtonController : MonoBehaviour
         else
         {
             //Player has pressed a key that is not on the screen
-            Debug.Log("Miss key");
+            player.Stun();
         }
     }
 

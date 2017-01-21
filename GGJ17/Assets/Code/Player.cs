@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public float max_speed = 10.0f;
     public float acceleration = 1.0f;
+    [Header("Others")]
     [Range(0.0f, 1.0f)]
     public float reactivityPercent = 0.5f;
     [Range(0.0f, 180.0f)]
     public float aim_tolerance = 30.0f;
+    public float max_stun_time = 1.5f;
 
     public float max_dash_dst = 200;
     public LayerMask enemy_layer;
@@ -26,6 +28,11 @@ public class Player : MonoBehaviour
     float velocity = 0.0f;
     Vector3 direction = Vector3.zero;
 
+    //Stun
+    [HideInInspector]
+    public bool stunned = false;
+    float stunned_time = 0.0f;
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -33,8 +40,22 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Movement();
-        Aiming();
+        if(!stunned)
+        {
+            Movement();
+            Aiming();
+        }
+        else
+        {
+            stunned_time += Time.deltaTime;
+            if(stunned_time >= max_stun_time)
+            {
+                stunned_time = 0.0f;
+                stunned = false;
+                //End of the stun
+            }
+        }
+        
 	}
 
     private void Movement()
@@ -112,52 +133,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*private void CheckEnemy(Enemy enemy)
+    public void Stun()
     {
-        if (selected_enemy == null)
+        //Execute fail animation
+        if(stunned == false)
         {
-            //No enemy is selected now
-            if (candidate_enemy == null)
-            {
-                //enemy is null and candidate too. add the enemy to a new candidate
-                candidate_enemy = enemy;
-                candidate_vision_time = 0.0f;
-            }
-            else
-            {
-                //there is no enemy selected and a candidate. Check if the candidate is the same as the enemy
-                if (candidate_enemy == enemy)
-                {
-                    //The candidate is the same again. Add time
-                    candidate_vision_time += Time.deltaTime;
-                    if (candidate_vision_time >= detection_time)
-                    {
-                        selected_enemy = candidate_enemy;
-                        candidate_enemy = null;
-                        candidate_vision_time = 0.0f;
-                    }
-                }
-                else
-                {
-                    //The candidate is a new candidate. Reset the time and add a new target
-                    candidate_enemy = enemy;
-                    candidate_vision_time = 0.0f;
-                }
-            }
-        }
-        else
-        {
-            //The player has pointed to a new target. Deselect the selected and add a new candidate
-            if (selected_enemy != enemy)
-            {
-                selected_enemy.HideButtonAim();
-                selected_enemy = null;
-                candidate_enemy = enemy;
-                candidate_vision_time = 0.0f;
-            }
-
-        }
-    }*/
+            stunned = true;
+            stunned_time = 0.0f;
+        }  
+    }
 
    void OnDrawGizmos()
    {
