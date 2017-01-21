@@ -228,6 +228,16 @@ public class PlayerAnim : MonoBehaviour
         }
     }
 
+
+    public void GameOverAnim()
+    {
+        playing_game_over = true;
+        if ((int)p_anim % 2 == 0)
+            anim.Play("dieR");
+        else
+            anim.Play("dieL");
+    }
+
    
     
 }

@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 //Attack
                 Attack();
-                GameLoop.manager.RemoveLife();
+               
             }
         }
 
@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
+        GameLoop.manager.RemoveLife();
         //Play attack animation.
 
         //Hit player

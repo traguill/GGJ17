@@ -181,7 +181,10 @@ public class Player : MonoBehaviour
     //The enemy has hit the player
     public void PlayerHit()
     {
-        StartCoroutine("DamagedPlayer");
+        if (!GameLoop.manager.IsGameOver())
+            StartCoroutine("DamagedPlayer");
+        else
+            GetComponent<PlayerAnim>().GameOverAnim();
     }
 
     IEnumerator DamagedPlayer()
