@@ -10,6 +10,9 @@ public class SteeringBasics : MonoBehaviour {
 
     public float character_radius = 0.8f;
 
+    [HideInInspector]
+    public bool stop = false;
+
     public void SetMovementVelocity(Vector3 vel)
     {
         movement = vel;
@@ -23,6 +26,9 @@ public class SteeringBasics : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (stop)
+            return;
+
         //Cap the velocity
         if (movement.magnitude > max_velocity)
         {

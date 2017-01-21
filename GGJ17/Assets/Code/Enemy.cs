@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Balance")]
     public float hit_radius = 1.0f;
     public int detect_frames = 2;
+    public float charge_attack_time = 1.0f;
 
     [Header("Configuration")]
     public Button_Enemy button;
@@ -15,13 +16,27 @@ public class Enemy : MonoBehaviour
     int frames_d = 0; //frames detected
     int frames_b = 0; //frames begin
     bool aim_button_visible = false;
+
+    //Player detected
+    bool player_detected = false;
+    float charge_time = 0.0f;
 	
 	// Update is called once per frame
 	void Update () 
     {
         frames_b = frames_d;
-
-        DetectPlayer();
+        
+        if(!player_detected)
+            DetectPlayer();
+        else
+        {
+            charge_time += Time.deltaTime;
+            if(charge_time >= charge_attack_time)
+            {
+                //Attack
+                Debug.Log("Attack");
+            }
+        }
 
         if(frames_d >= detect_frames)
         {
@@ -52,6 +67,12 @@ public class Enemy : MonoBehaviour
         if(player)
         {
             button.ShowButton();
+            player_detected = true;
+            //Stop all movement
+            SteeringBasics basics = GetComponent<SteeringBasics>();
+            basics.stop = true;
+            //Start to charge the attack
+            charge_time = 0.0f;
         }
     }
 
