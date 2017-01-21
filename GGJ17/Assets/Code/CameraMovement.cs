@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
 
     void Awake()
     {
-        Camera.main.orthographicSize = Screen.height / 48.0f / 2.0f;
+        Camera.main.orthographicSize = Screen.height / 64.0f / 2.0f;
         float screenAspect = (float)Screen.width / (float)Screen.height;
         float cameraHeight = Camera.main.orthographicSize * 2;
         Bounds bounds = new Bounds(Camera.main.transform.position, new Vector3(cameraHeight * screenAspect, cameraHeight, 0));

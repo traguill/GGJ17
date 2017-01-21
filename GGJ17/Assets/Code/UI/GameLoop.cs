@@ -6,8 +6,10 @@ using System.Collections;
 public class GameLoop : MonoBehaviour 
 {
     public static GameLoop manager;
-    public Text life_text;
-    int lifes = 3;
+    public Image life1;
+    public Image life2;
+    public Image life3;
+    public int lifes = 3;
 
     bool game_over = false;
 
@@ -18,11 +20,13 @@ public class GameLoop : MonoBehaviour
 
     void Start()
     {
-        life_text.text = "Lifes: " + lifes.ToString();
+        life1.gameObject.SetActive(true);
+        life2.gameObject.SetActive(true);
+        life3.gameObject.SetActive(true);
     }
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update () 
     {
 	    if(game_over)
         {
@@ -33,8 +37,14 @@ public class GameLoop : MonoBehaviour
     public void RemoveLife()
     {
         lifes--;
-        life_text.text = "Lifes: " + lifes.ToString();
-        if (lifes == 0)
+        if (lifes == 2)
+            life3.gameObject.SetActive(false);
+        else if (lifes == 1)
+            life2.gameObject.SetActive(false);
+        else if (lifes == 0)
+        {
+            life1.gameObject.SetActive(false);
             game_over = true;
+        }
     }
 }
