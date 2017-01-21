@@ -28,7 +28,7 @@ public class WaveManager : MonoBehaviour
     void Start ()
     {
         actual_wave = 0;
-        actual_wave_ui.text = "Wave: " + (actual_wave + 1);
+        actual_wave_ui.text = (actual_wave + 1).ToString();
         countdown_timer = 0.0f;
         countdown_activated = false;
 	}
@@ -55,7 +55,7 @@ public class WaveManager : MonoBehaviour
                 {
                     DesctivateCountdown();
                     actual_wave++;
-                    actual_wave_ui.text = "Wave: " + (actual_wave + 1);
+                    actual_wave_ui.text = (actual_wave + 1).ToString();
                     spawner_manager.WaveChanged();
                 }
             }
