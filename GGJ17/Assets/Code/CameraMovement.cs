@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
 
     void Awake()
     {
+        Camera.main.orthographicSize = Screen.height / 48.0f / 2.0f;
         float screenAspect = (float)Screen.width / (float)Screen.height;
         float cameraHeight = Camera.main.orthographicSize * 2;
         Bounds bounds = new Bounds(Camera.main.transform.position, new Vector3(cameraHeight * screenAspect, cameraHeight, 0));
@@ -39,6 +40,9 @@ public class CameraMovement : MonoBehaviour
         if (target.position.y < transform.position.y - half_size_y + limit_y)
             pos_y = target.position.y + half_size_y - limit_y;
 
+        pos_x = RoundToNearestPixel(pos_x);
+        pos_y = RoundToNearestPixel(pos_y);
+
         if (pos_x != 0 && pos_y != 0)
             transform.position = new Vector3(pos_x, pos_y, transform.position.z);
         else
@@ -49,6 +53,13 @@ public class CameraMovement : MonoBehaviour
             if (pos_y != 0)
                 transform.position = new Vector3(transform.position.x, pos_y, transform.position.z);
         }
+    }
 
+    public float RoundToNearestPixel(float unityUnits)
+    {
+        float valueInPixels = (Screen.height / (Camera.main.orthographicSize * 2)) * unityUnits;
+        valueInPixels = Mathf.Round(valueInPixels);
+        float adjustedUnityUnits = valueInPixels / (Screen.height / (Camera.main.orthographicSize * 2));
+        return adjustedUnityUnits;
     }
 }
