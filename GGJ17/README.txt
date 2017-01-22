@@ -18,7 +18,9 @@ Right Joystick: 	Aim enemies
 RB:			Target enemy aimed (you can only have one target)
 A, B, X or Y:		Kill target or near enemies instantlly (every enemy has its own button)
 
-
+NOTE: If you press any button to a kill an enemy, 
+     and in this moment there isn't any with the button pressed, 
+     you will be stunned.
 
 ----DEVELOPING INFO----
 

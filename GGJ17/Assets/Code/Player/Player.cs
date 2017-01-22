@@ -50,6 +50,12 @@ public class Player : MonoBehaviour
     public float min_y;
     public float max_y;
 
+    public AudioClip clip_punch;
+    //public AudioClip clip_teleport;
+    //public AudioClip clip_impact;
+    //public AudioClip clip_die;
+    public AudioSource source;
+
     void Awake()
     {
         render = GetComponent<SpriteRenderer>();
@@ -238,6 +244,7 @@ public class Player : MonoBehaviour
 
     public void KillEnemy(Enemy enemy)
    {
+       source.PlayOneShot(clip_punch);
        StartCoroutine("EnemyDead", enemy);  
    }
 
