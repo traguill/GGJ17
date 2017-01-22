@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerAnim : MonoBehaviour 
 {
+    public float dash_x_displacement = 0.8f;
+
     enum PAnimation
     {
         idleL = 1,
@@ -79,7 +81,10 @@ public class PlayerAnim : MonoBehaviour
                     //Kill the enemy HERE!
                     player.KillEnemy(enemy);
                     //tp
-                    transform.position = enemy.transform.position;
+                    if(enemy.transform.position.x >= transform.position.x)
+                        transform.position = enemy.transform.position - new Vector3(dash_x_displacement, 0, 0);
+                    else
+                        transform.position = enemy.transform.position + new Vector3(dash_x_displacement, 0, 0);
                     enemy = null;
                 }
             }
