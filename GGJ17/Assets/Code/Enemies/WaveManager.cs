@@ -94,6 +94,7 @@ public class WaveManager : MonoBehaviour
     {
         count = 5;
         countdown_timer = 0.0f;
+        countdown.text = count.ToString();
         countdown.gameObject.SetActive(true);
         countdown_activated = true;        
     }
