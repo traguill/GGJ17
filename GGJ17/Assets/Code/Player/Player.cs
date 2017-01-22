@@ -44,6 +44,12 @@ public class Player : MonoBehaviour
     public bool invulnerable = false;
     public static Player pl;
 
+    [Header("Bounds")]
+    public float min_x;
+    public float max_x;
+    public float min_y;
+    public float max_y;
+
     void Awake()
     {
         render = GetComponent<SpriteRenderer>();
@@ -97,6 +103,37 @@ public class Player : MonoBehaviour
             direction = Vector3.zero;
             velocity = 0;
         }
+        CheckBounds();
+    }
+
+    private void CheckBounds()
+    {
+        float new_x = 0;
+        float new_y = 0;
+        if (transform.position.x < min_x)
+        {
+            new_x = min_x;
+        }
+        if (transform.position.x > max_x)
+        {
+            new_x = max_x;
+        }
+        if (transform.position.y < min_y)
+        {
+            new_y = min_y;
+        }
+        if (transform.position.y > max_y)
+        {
+            new_y = max_y;
+        }
+
+        Vector3 new_position = transform.position;
+        if (new_x != 0)
+            new_position.x = new_x;
+        if (new_y != 0)
+            new_position.y = new_y;
+
+        transform.position = new_position;
     }
 
     private void Aiming()
