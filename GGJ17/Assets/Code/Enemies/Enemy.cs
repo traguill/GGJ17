@@ -112,7 +112,8 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        GameLoop.manager.RemoveLife();
+        if(!Player.pl.invulnerable)
+            GameLoop.manager.RemoveLife();
         //Play attack animation.
 
         //Hit player

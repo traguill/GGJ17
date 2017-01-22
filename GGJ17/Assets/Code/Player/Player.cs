@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
     float stunned_time = 0.0f;
 
     SpriteRenderer render;
-
+    [HideInInspector]
+    public bool invulnerable = false;
     public static Player pl;
 
     void Awake()
@@ -182,10 +183,15 @@ public class Player : MonoBehaviour
     //The enemy has hit the player
     public void PlayerHit()
     {
-        if (!GameLoop.manager.IsGameOver())
-            StartCoroutine("DamagedPlayer");
-        else
-            GetComponent<PlayerAnim>().GameOverAnim();
+        if(invulnerable == false)
+        {
+            if (!GameLoop.manager.IsGameOver())
+                StartCoroutine("DamagedPlayer");
+            else
+                GetComponent<PlayerAnim>().GameOverAnim();
+
+            invulnerable = true;
+        }
     }
 
     IEnumerator DamagedPlayer()
@@ -200,5 +206,7 @@ public class Player : MonoBehaviour
             render.color = Color.white;
             yield return new WaitForSeconds(0.1f);
         }
+
+        invulnerable = false;
     }
 }
