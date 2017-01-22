@@ -15,6 +15,11 @@ public class CameraMovement : MonoBehaviour
 
     float current_transition;
     public float total_transition;
+    [Header("Bounds")]
+   public float min_x = -11;
+   public float max_x = 14.5f;
+   public float min_y = -9.4f;
+   public float max_y = 10.2f;
 
     void Awake()
     {
@@ -59,6 +64,38 @@ public class CameraMovement : MonoBehaviour
             if (pos_y != 0)
                 transform.position = new Vector3(transform.position.x, pos_y, transform.position.z);
         }
+
+        CheckBounds();
+    }
+
+    public void CheckBounds()
+    {
+        float new_x = 0;
+        float new_y = 0;
+        if(transform.position.x < min_x)
+        {
+            new_x = RoundToNearestPixel(min_x);
+        }
+        if(transform.position.x > max_x)
+        {
+            new_x = RoundToNearestPixel(max_x);
+        }
+        if(transform.position.y < min_y)
+        {
+            new_y = RoundToNearestPixel(min_y);
+        }
+        if(transform.position.y > max_y)
+        {
+            new_y = RoundToNearestPixel(max_y);
+        }
+
+        Vector3 new_position = transform.position;
+        if (new_x != 0)
+            new_position.x = new_x;
+        if (new_y != 0)
+            new_position.y = new_y;
+
+        transform.position = new_position;
     }
 
     public float RoundToNearestPixel(float unityUnits)
