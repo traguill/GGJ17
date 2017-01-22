@@ -27,7 +27,9 @@ public class GameLoop : MonoBehaviour
 
     public AudioClip clip_win;
     public AudioClip clip_lose;
-    public AudioSource source;
+    public AudioClip music;
+    public AudioSource sound_source;
+    public AudioSource music_source;
 
     void Awake()
     {
@@ -54,6 +56,9 @@ public class GameLoop : MonoBehaviour
         press_button_alpha.a = 0;
         press_button.color = press_button_alpha;
         press_button.gameObject.SetActive(true);
+
+        music_source.clip = music;
+        music_source.Play();
     }
 
     // Update is called once per frame
@@ -61,6 +66,7 @@ public class GameLoop : MonoBehaviour
     {
 	    if(game_over)
         {
+            music_source.Stop();
             camera.CenterCamera();
 
             if (you_lose_alpha.a <= 1.0f)
@@ -71,7 +77,7 @@ public class GameLoop : MonoBehaviour
 
             else if(press_button_alpha.a <= 1.0f)
             {
-                source.PlayOneShot(clip_lose);
+                sound_source.PlayOneShot(clip_lose);
                 press_button_alpha.a += 0.01f;
                 press_button.color = press_button_alpha;
             }
@@ -83,6 +89,7 @@ public class GameLoop : MonoBehaviour
         }
         else if(player_wins)
         {
+            music_source.Stop();
             camera.CenterCamera();
 
             if (you_win_alpha.a <= 1.0f)
@@ -93,7 +100,7 @@ public class GameLoop : MonoBehaviour
 
             else if (press_button_alpha.a <= 1.0f)
             {
-                source.PlayOneShot(clip_win);
+                sound_source.PlayOneShot(clip_win);
                 press_button_alpha.a += 0.01f;
                 press_button.color = press_button_alpha;
             }
