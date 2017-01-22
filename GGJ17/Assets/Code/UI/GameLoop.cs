@@ -39,14 +39,17 @@ public class GameLoop : MonoBehaviour
         you_lose_alpha = you_lose.color;
         you_lose_alpha.a = 0;
         you_lose.color = you_lose_alpha;
+        you_lose.gameObject.SetActive(true);
 
         you_win_alpha = you_win.color;
         you_win_alpha.a = 0;
         you_win.color = you_win_alpha;
+        you_win.gameObject.SetActive(true);
 
         press_button_alpha = press_button.color;
         press_button_alpha.a = 0;
         press_button.color = press_button_alpha;
+        press_button.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
