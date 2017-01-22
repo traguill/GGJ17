@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
     public List<Vector3> waves;
     public List<Vector3> initial_waves;
     public int actual_wave;
-    List<GameObject> enemies_alive = new List<GameObject>();    
+    public List<GameObject> enemies_alive = new List<GameObject>();    
 
     void Awake()
     {
@@ -85,10 +85,16 @@ public class WaveManager : MonoBehaviour
         return initial_waves[actual_wave];
     }
 
+    public int EnemiesAlive()
+    {
+        return enemies_alive.Count;
+    }
+
     void ActivateCountdown()
     {
         count = 5;
         countdown_timer = 0.0f;
+        countdown.text = count.ToString();
         countdown.gameObject.SetActive(true);
         countdown_activated = true;        
     }

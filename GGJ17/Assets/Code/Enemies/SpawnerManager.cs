@@ -29,8 +29,17 @@ public class SpawnerManager : MonoBehaviour
         {
             if (timer > time_to_spawn)
             {
-                for(int i = 0; i < enemies_for_spawn; i++)
-                    Spawn();
+                if (WaveManager.wave_manager.actual_wave == 1)
+                {
+                    int random = Random.Range(0, spawners.Count);
+                    Spawn(random);
+                    Spawn(random);
+                }
+                else
+                {
+                    for (int i = 0; i < enemies_for_spawn; i++)
+                        Spawn();
+                }
                 timer = 0.0f;
             }
             else

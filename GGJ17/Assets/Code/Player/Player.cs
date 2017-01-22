@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour 
 {
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float reactivityPercent = 0.5f;
     [Range(0.0f, 180.0f)]
-    public float aim_tolerance = 30.0f;
+    public float aim_tolerance = 20.0f;
     public float max_stun_time = 1.5f;
 
     public float max_dash_dst = 200;
@@ -118,31 +119,9 @@ public class Player : MonoBehaviour
                 ButtonController.button_ctrl.pre_selected_target.Seen();
             }
             else
-            {
-                //Find a new target
-                 RaycastHit hit;
-                 if(Physics.Raycast(transform.position, aim_dir.normalized, out hit, max_dash_dst, enemy_layer))
-                 {
-                    Enemy enemy = hit.transform.gameObject.GetComponentInParent<Enemy>();
-                    if(enemy)
-                    {
-                        enemy.Seen();
-                    }
-                    else
-                    {
-                        Debug.Log("Enemy doesn't have a button_enemy script");
-                    }
-                }
-            }
-        }
-        else
-        {
-            //Find a new target
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, aim_dir.normalized, out hit, max_dash_dst, enemy_layer))
-            {
-                Enemy enemy = hit.transform.gameObject.GetComponentInParent<Enemy>();
-                if (enemy)
+            {                
+                Enemy enemy = AimingEnemies(aim_dir);
+                if(enemy)
                 {
                     enemy.Seen();
                 }
@@ -150,8 +129,55 @@ public class Player : MonoBehaviour
                 {
                     Debug.Log("Enemy doesn't have a button_enemy script");
                 }
+                
             }
         }
+        else
+        {
+            Enemy enemy = AimingEnemies(aim_dir);
+            if (enemy)
+            {
+                enemy.Seen();
+            }
+            else
+            {
+                Debug.Log("Enemy doesn't have a button_enemy script");
+            }
+        }
+    }
+
+    private Enemy AimingEnemies(Vector3 aim_dir)
+    {
+        List<GameObject> enemies = WaveManager.wave_manager.enemies_alive;        
+        Vector3 enemy_dir;
+        float min_angle = 0.0f;
+        int target_enemy = 0;
+
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            if (i == 0)
+            {
+                enemy_dir = enemies[i].transform.position - transform.position;
+                min_angle = Vector3.Angle(aim_dir, enemy_dir);
+                target_enemy = i;
+            }
+            else
+            {
+                enemy_dir = enemies[i].transform.position - transform.position;
+                float tmp_angle = Vector3.Angle(aim_dir, enemy_dir);
+
+                if(tmp_angle < min_angle)
+                {
+                    min_angle = tmp_angle;
+                    target_enemy = i;
+                }
+            }
+        }
+
+        if (enemies.Count > 0 && min_angle <= aim_tolerance)
+            return enemies[target_enemy].GetComponent<Enemy>();
+        else
+            return null;
     }
 
     public void Stun()
