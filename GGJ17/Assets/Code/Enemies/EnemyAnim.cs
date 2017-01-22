@@ -10,10 +10,16 @@ public class EnemyAnim : MonoBehaviour
     bool attacking = false;
     bool dead = false;
 
-	void Awake()
+    public AudioClip clip_charge_attack;
+    public AudioClip clip_attack;
+    public AudioClip clip_dead;
+    public AudioSource source;
+
+    void Awake()
     {
         movement = GetComponent<SteeringBasics>();
         anim = GetComponent<Animator>();
+        source = gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -38,6 +44,7 @@ public class EnemyAnim : MonoBehaviour
 
     public void ChargeAttackAnim()
     {
+        source.PlayOneShot(clip_charge_attack);
         attacking = true;
         if (facing_right)
             anim.Play("ChargeR");
@@ -47,6 +54,7 @@ public class EnemyAnim : MonoBehaviour
 
     public void AttackAnim()
     {
+        source.PlayOneShot(clip_attack);
         if (facing_right)
             anim.Play("AttackR");
         else
@@ -55,6 +63,7 @@ public class EnemyAnim : MonoBehaviour
 
     public void DieAnim()
     {
+        source.PlayOneShot(clip_dead);
         dead = true;
         if (facing_right)
             anim.Play("DieR");
