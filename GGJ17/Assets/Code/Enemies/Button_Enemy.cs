@@ -63,6 +63,14 @@ public class Button_Enemy : MonoBehaviour
         StartCoroutine("HideButtonAnimCo");
     }
 
+    public void HideButtonAnimNow()
+    {
+        sprite.sprite = null;
+        is_visible = false;
+        id = -1;
+        ButtonController.button_ctrl.RemoveEnemy(parent);
+    }
+
     IEnumerator HideButtonAnimCo()
     {
         yield return new WaitForSeconds(aim_fade_time);

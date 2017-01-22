@@ -238,10 +238,18 @@ public class Player : MonoBehaviour
 
     public void KillEnemy(Enemy enemy)
    {
-       WaveManager.wave_manager.DestroyEnemy(enemy.gameObject);
-       ButtonController.button_ctrl.RemoveEnemy(enemy);
-       Destroy(enemy.gameObject);   
+       StartCoroutine("EnemyDead", enemy);  
    }
+
+    IEnumerator EnemyDead(Enemy enemy)
+    {
+        enemy.GetComponent<EnemyAnim>().DieAnim();
+        enemy.SetDead();
+        yield return new WaitForSeconds(2);
+        WaveManager.wave_manager.DestroyEnemy(enemy.gameObject);
+        ButtonController.button_ctrl.RemoveEnemy(enemy);
+        Destroy(enemy.gameObject); 
+    }
 
     //The enemy has hit the player
     public void PlayerHit()

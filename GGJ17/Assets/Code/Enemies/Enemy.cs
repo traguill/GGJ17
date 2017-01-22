@@ -20,10 +20,15 @@ public class Enemy : MonoBehaviour
     //Player detected
     bool player_detected = false;
     float charge_time = 0.0f;
+
+    bool dead = false;
 	
 	// Update is called once per frame
 	void Update () 
     {
+        if (dead)
+            return;
+
         frames_b = frames_d;
         
         if(!player_detected)
@@ -77,6 +82,7 @@ public class Enemy : MonoBehaviour
             basics.stop = true;
             //Start to charge the attack
             charge_time = 0.0f;
+            GetComponent<EnemyAnim>().ChargeAttackAnim();
         }
     }
 
@@ -109,12 +115,26 @@ public class Enemy : MonoBehaviour
         button.PreSelectedHide();
     }
 
+    public void SetDead()
+    {
+        dead = true;
+        button.HideButtonAnim();
+
+        //Stop all movement
+        SteeringBasics basics = GetComponent<SteeringBasics>();
+        basics.stop = true;
+
+    }
 
     private void Attack()
     {
         if(!Player.pl.invulnerable)
             GameLoop.manager.RemoveLife();
         //Play attack animation.
+        Vector3 new_pos = Player.pl.transform.position;
+        new_pos.y -= 0.2f;
+        transform.position = new_pos;
+        GetComponent<EnemyAnim>().AttackAnim();
 
         //Hit player
         Player.pl.PlayerHit();
