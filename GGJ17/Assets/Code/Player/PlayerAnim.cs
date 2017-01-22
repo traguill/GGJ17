@@ -16,7 +16,9 @@ public class PlayerAnim : MonoBehaviour
         dissapearL = 9,
         dissapearR = 10,
         appearL = 11,
-        appearR = 12
+        appearR = 12,
+        failL = 13,
+        failR = 14
     };
 
     PAnimation p_anim = PAnimation.idleR;
@@ -27,6 +29,7 @@ public class PlayerAnim : MonoBehaviour
 
     bool playing_game_over = false; //This animation is above all the others
     bool playing_punch = false;
+
 
     void Awake()
     {
@@ -43,7 +46,7 @@ public class PlayerAnim : MonoBehaviour
         bool face_right = (player.direction.x >= 0) ? true : false;
 
         //No punch-dissapear or appear
-        if(!playing_punch)
+        if(!playing_punch && player.stunned == false)
         {
             if (player.velocity != 0)
             {
@@ -238,6 +241,18 @@ public class PlayerAnim : MonoBehaviour
             anim.Play("dieL");
     }
 
-   
+   public void PlayFailAnim()
+    {
+       if((int) p_anim % 2 == 0)
+       {
+           p_anim = PAnimation.failR;
+           anim.Play("failR");
+       }
+       else
+       {
+           p_anim = PAnimation.failL;
+           anim.Play("failL");
+       }
+    }
     
 }
