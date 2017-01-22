@@ -39,6 +39,7 @@ public class WaveManager : MonoBehaviour
     {
         if (!spawner_manager.IsSpawning() && enemies_alive.Count == 0)
         {
+            actual_wave++;
             if (actual_wave == waves.Count)
                 GameLoop.manager.player_wins = true;
 
@@ -59,7 +60,6 @@ public class WaveManager : MonoBehaviour
                 else
                 {
                     DesctivateCountdown();
-                    actual_wave++;
                     actual_wave_ui.text = (actual_wave + 1).ToString();
                     spawner_manager.WaveChanged();
                 }
