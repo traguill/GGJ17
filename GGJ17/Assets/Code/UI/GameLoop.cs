@@ -25,6 +25,10 @@ public class GameLoop : MonoBehaviour
     bool game_over = false;
     public bool player_wins = false;
 
+    public AudioClip clip_win;
+    public AudioClip clip_lose;
+    public AudioSource source;
+
     void Awake()
     {
         manager = this;
@@ -67,6 +71,7 @@ public class GameLoop : MonoBehaviour
 
             else if(press_button_alpha.a <= 1.0f)
             {
+                source.PlayOneShot(clip_lose);
                 press_button_alpha.a += 0.01f;
                 press_button.color = press_button_alpha;
             }
@@ -88,6 +93,7 @@ public class GameLoop : MonoBehaviour
 
             else if (press_button_alpha.a <= 1.0f)
             {
+                source.PlayOneShot(clip_win);
                 press_button_alpha.a += 0.01f;
                 press_button.color = press_button_alpha;
             }
