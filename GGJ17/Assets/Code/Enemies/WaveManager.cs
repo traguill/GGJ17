@@ -37,9 +37,13 @@ public class WaveManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (!countdown_activated && !spawner_manager.IsSpawning() && enemies_alive.Count == 0)
+        if (!spawner_manager.IsSpawning() && enemies_alive.Count == 0)
         {
-            ActivateCountdown();            
+            if (actual_wave == waves.Count)
+                GameLoop.manager.player_wins = true;
+
+            else if (!countdown_activated)
+                ActivateCountdown();   
         }
 
         if(countdown_activated)

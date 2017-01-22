@@ -15,11 +15,15 @@ public class GameLoop : MonoBehaviour
     public Text you_lose;
     Color you_lose_alpha;
 
+    public Text you_win;
+    Color you_win_alpha;
+
     public Text press_button;
     Color press_button_alpha;
 
     public int lifes = 3;
     bool game_over = false;
+    public bool player_wins = false;
 
     void Awake()
     {
@@ -35,6 +39,10 @@ public class GameLoop : MonoBehaviour
         you_lose_alpha = you_lose.color;
         you_lose_alpha.a = 0;
         you_lose.color = you_lose_alpha;
+
+        you_win_alpha = you_win.color;
+        you_win_alpha.a = 0;
+        you_win.color = you_win_alpha;
 
         press_button_alpha = press_button.color;
         press_button_alpha.a = 0;
@@ -63,6 +71,27 @@ public class GameLoop : MonoBehaviour
             else if(Input.anyKey)
             {
                 SceneManager.LoadScene("MenuScene");
+            }
+        }
+        else if(player_wins)
+        {
+            camera.CenterCamera();
+
+            if (you_win_alpha.a <= 1.0f)
+            {       
+                you_win_alpha.a += 0.01f;
+                you_win.color = you_win_alpha;
+            }
+
+            else if (press_button_alpha.a <= 1.0f)
+            {
+                press_button_alpha.a += 0.01f;
+                press_button.color = press_button_alpha;
+            }
+
+            else if (Input.anyKey)
+            {
+                SceneManager.LoadScene("Credits");
             }
         }
     }
