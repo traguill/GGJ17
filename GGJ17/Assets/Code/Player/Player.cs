@@ -244,7 +244,6 @@ public class Player : MonoBehaviour
 
     public void KillEnemy(Enemy enemy)
    {
-       source.PlayOneShot(clip_punch);
        StartCoroutine("EnemyDead", enemy);  
    }
 

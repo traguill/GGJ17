@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerAnim : MonoBehaviour 
 {
+    public float dash_x_displacement = 0.8f;
+
     enum PAnimation
     {
         idleL = 1,
@@ -79,7 +81,10 @@ public class PlayerAnim : MonoBehaviour
                     //Kill the enemy HERE!
                     player.KillEnemy(enemy);
                     //tp
-                    transform.position = enemy.transform.position;
+                    if(enemy.transform.position.x >= transform.position.x)
+                        transform.position = enemy.transform.position - new Vector3(dash_x_displacement, 0, 0);
+                    else
+                        transform.position = enemy.transform.position + new Vector3(dash_x_displacement, 0, 0);
                     enemy = null;
                 }
             }
@@ -173,6 +178,7 @@ public class PlayerAnim : MonoBehaviour
             p_anim = PAnimation.punchL;
         }
         playing_punch = true;
+        gameObject.GetComponent<Player>().source.PlayOneShot(gameObject.GetComponent<Player>().clip_punch);
         enemy = null;
     }
 
@@ -194,6 +200,7 @@ public class PlayerAnim : MonoBehaviour
             p_anim = PAnimation.dissapearL;
         }
         playing_punch = true;
+        gameObject.GetComponent<Player>().source.PlayOneShot(gameObject.GetComponent<Player>().clip_punch);
         this.enemy = enemy;
     }
 
