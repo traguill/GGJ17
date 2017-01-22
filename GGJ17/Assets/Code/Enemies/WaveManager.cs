@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour
     int count;
     bool countdown_activated;
     float countdown_timer;
+    bool wave_changed;
 
     public List<Vector3> waves;
     public List<Vector3> initial_waves;
@@ -32,6 +33,7 @@ public class WaveManager : MonoBehaviour
         actual_wave_ui.text = (actual_wave + 1).ToString();
         countdown_timer = 0.0f;
         countdown_activated = false;
+        wave_changed = false;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,9 @@ public class WaveManager : MonoBehaviour
     {
         if (!spawner_manager.IsSpawning() && enemies_alive.Count == 0)
         {
+            if (!wave_changed)
+                ChangeWave();
+
             if (actual_wave == waves.Count)
                 GameLoop.manager.player_wins = true;
 
@@ -59,9 +64,9 @@ public class WaveManager : MonoBehaviour
                 else
                 {
                     DesctivateCountdown();
-                    actual_wave++;
                     actual_wave_ui.text = (actual_wave + 1).ToString();
                     spawner_manager.WaveChanged();
+                    wave_changed = false;
                 }
             }
             else
@@ -107,5 +112,11 @@ public class WaveManager : MonoBehaviour
     {
         countdown.gameObject.SetActive(false);
         countdown_activated = false;
+    }
+
+    void ChangeWave()
+    {
+        actual_wave++;
+        wave_changed = true;
     }
 }
