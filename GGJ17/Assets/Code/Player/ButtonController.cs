@@ -114,7 +114,10 @@ public class ButtonController : MonoBehaviour
             else
             {
                 //No dash
-                Debug.Log("BasicPunch");
+                if (enemy.transform.position.x >= transform.position.x)
+                    Player.pl.transform.position = enemy.transform.position - new Vector3(1, 0, 0);
+                else
+                    Player.pl.transform.position = enemy.transform.position + new Vector3(1, 0, 0);
                 p_anim.PlayPunch(enemy.transform);
                 player.KillEnemy(enemy);
             }
