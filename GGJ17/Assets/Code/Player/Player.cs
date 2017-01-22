@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     public float max_y;
 
     public AudioClip clip_punch;
-    //public AudioClip clip_teleport;
+    public AudioClip clip_teleport;
     //public AudioClip clip_impact;
     //public AudioClip clip_die;
     public AudioSource source;

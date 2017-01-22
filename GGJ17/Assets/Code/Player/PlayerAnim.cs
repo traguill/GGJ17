@@ -78,6 +78,7 @@ public class PlayerAnim : MonoBehaviour
 
                 if(enemy != null && (anim.GetCurrentAnimatorStateInfo(0).IsName("dissapearL") || anim.GetCurrentAnimatorStateInfo(0).IsName("dissapearR")))
                 {
+                    gameObject.GetComponent<Player>().source.PlayOneShot(gameObject.GetComponent<Player>().clip_punch);
                     //Kill the enemy HERE!
                     player.KillEnemy(enemy);
                     //tp
@@ -187,6 +188,7 @@ public class PlayerAnim : MonoBehaviour
         if (playing_game_over)
             return;
 
+        gameObject.GetComponent<Player>().source.PlayOneShot(gameObject.GetComponent<Player>().clip_teleport);
         if (enemy.transform.position.x > transform.position.x)
         {
             //Right
@@ -200,7 +202,6 @@ public class PlayerAnim : MonoBehaviour
             p_anim = PAnimation.dissapearL;
         }
         playing_punch = true;
-        gameObject.GetComponent<Player>().source.PlayOneShot(gameObject.GetComponent<Player>().clip_punch);
         this.enemy = enemy;
     }
 
