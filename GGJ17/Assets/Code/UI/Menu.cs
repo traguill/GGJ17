@@ -18,6 +18,8 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button7))
             Play();
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button6))
+            Credits();
     }
 
     public void Play()

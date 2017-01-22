@@ -11,9 +11,18 @@ public class Credits : MonoBehaviour {
 
     RectTransform trans;
 
+    public AudioClip music;
+    public AudioSource source;
+
     void Awake()
     {
         trans = GetComponent<RectTransform>();
+    }
+
+    void Start()
+    {
+        source.clip = music;
+        source.Play();
     }
 	
 	// Update is called once per frame
